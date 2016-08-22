@@ -108,10 +108,8 @@ function inviteFriend(){
 
 function goodReaction(){
   console.log("sending positive vibes");
-  frame1 = document.getElementById("ifrm2").contentWindow;
-  frame1.postMessage(JSON.stringify({"command": "message", "data": "cheesecake oone"}), '*');
   frame2 = document.getElementById("ifrm1").contentWindow;
-  frame2.postMessage(JSON.stringify({"command": "message", "data": "i like food"}), '*');
+  frame2.postMessage(JSON.stringify({"command": "message", "data": "good"}), '*');
 }
 
 </script>
