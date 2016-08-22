@@ -33,8 +33,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			// get the page url
 			var pageUrl = document.location.href;
 			// append the page url to the session id
-			var res = pageUrl.concat(sessionID);
-
+			inviteLink = pageUrl.concat(sessionID);
 			var inviteButton = document.getElementById("invite");
 			inviteButton.style.visibility = 'visible';
 			document.getElementById('exit_button').style.visibility="visible";
@@ -72,13 +71,11 @@ window.addEventListener('message', function(e){
 function exitSession(){
   sess.end('https://www.surfly.com');
 }
-
 // ignore friend button
 function ignoreFriend() {
     var friendsFrame = document.getElementById("ifrm2");
     var yourFrame = document.getElementById("ifrm1");
     var ignoreButton = document.getElementById("ignore");
-
     if(ignoreButton.innerHTML=="Ignore Friend"){
 	console.log('ok');
 	// we hide our friend's iframe
@@ -98,8 +95,6 @@ function ignoreFriend() {
 	document.getElementById('form_wrapper').style.left="-32%";
     }
 }
-
-
 function inviteFriend(){
   console.log("the inviteLink is", inviteLink);
   // we hide the invite button
@@ -109,12 +104,6 @@ function inviteFriend(){
   popupWindow.postMessage(inviteLink, "*");
   document.getElementById("popupLink").style.visibility="visible";
 }
-
-function goodReaction(){
-  console.log("send positive vibes");
-  Surfly.currentSession.sendMessage({bar: 'roger that'}, "*");
-}
-
 </script>
 
 <script>
@@ -132,7 +121,6 @@ function closeIFrame(){
 	<button class="button" id="exit_button" onclick="exitSession()">Exit</button>
 	<button id="ignore" onclick="ignoreFriend()">Ignore Friend</button>
 	<button id="invite" class="button" onclick="inviteFriend()">Invite Friend</button>
-        <button id="goodReact" class="button" onclick="goodReaction()">Good React</button>
 	<div id="form_wrapper">
 		<form id="nav" action="" method="post">
 			<label style="float:left">
