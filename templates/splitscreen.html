@@ -112,6 +112,11 @@ function goodReaction(){
   frame2.postMessage(JSON.stringify({"command": "message", "data": "good"}), '*');
 }
 
+function badReaction() {
+  console.log("ruining the zen");
+  frame  = document.getElementById("ifrm1").contentWindow;
+  frame.postMessage(JSON.stringify({"command": "message", "data": "bad"}), '*');
+
 </script>
 
 <script>
@@ -129,6 +134,7 @@ function closeIFrame(){
 	<button class="button" id="exit_button" onclick="exitSession()">Exit</button>
 	<button id="ignore" onclick="ignoreFriend()">Ignore Friend</button>
         <button id="goodReaction" class="button" onclick="goodReaction()">Good reaction</button>
+        <button id="badReaction" class="button" onclick="badReaction()">Bad reaction</button>
 	<button id="invite" class="button" onclick="inviteFriend()">Invite Friend</button>
 	<div id="form_wrapper">
 		<form id="nav" action="" method="post">

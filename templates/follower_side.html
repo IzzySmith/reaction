@@ -67,6 +67,7 @@ function exitSession(){
         <button class="button" id="ignore" onclick="ignoreFriend()">Ignore Friend</button>
         <button class="button" id="acknowledge" onclick="acknowledgeFriend()" style="visibility:hidden">Acknowledge friend</button>
         <img id="cow" src="../static/happycow.jpg" style="visibility: hidden">
+        <img id="grumpy" src="../static/grumpy.jpg" style="visibility: hidden">
 </div>
 
 <div id="form_wrapper" style="visibility:visible;">
@@ -142,6 +143,18 @@ window.addEventListener('message', function(e){
             if (string.match(/(good)/)) {
 	        console.log("the data recieved is ", string);
                 document.getElementById('cow').style.visibility = "visible";
+            }
+         }
+})
+</script>
+
+<script>
+window.addEventListener('message', function(e){
+        var string = JSON.stringify(e.data);
+        if (string.indexOf('cobro_event')) {
+            if (string.match(/(bad)/)) {
+	        console.log("you got a bad review ", string);
+                document.getElementById('grumpy').style.visibility = "visible";
             }
          }
 })
