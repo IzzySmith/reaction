@@ -43,8 +43,8 @@ window.addEventListener('DOMContentLoaded', function() {
                             console.log("the event was registered");
                             sess.sendMessage({bar: 'roger that'}, "*");
                             Surfly.currentSession.sendMessage({test: 'test this'}, "*");
-                });
-		.on('session_ended', function(session) {
+                })
+		s.on('session_ended', function(session) {
 			document.getElementById('exit_button').style.visibility="hidden";
 		}).startLeader('#ifrm1');
      }
