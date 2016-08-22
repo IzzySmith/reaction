@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', function() {
     if (init.success) {
 	if(!Surfly.currentSession){
 	    	s = Surfly.session();
-	        s._settings.url = "https://tranquil-sierra-23444.herokuapp.com/follower_side_start";
+	        s._settings.url = "https://sleepy-tor-80138.herokuapp.com/follower_side_start";
 		s.on('session_started', function(session) {
                         // get the follower link
 			var retrievedLink = session.followerLink;
