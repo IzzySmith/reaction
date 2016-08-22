@@ -108,8 +108,10 @@ function inviteFriend(){
 
 function goodReaction(){
   console.log("sending positive vibes");
-  frame = document.getElementById("ifrm2").contentWindow;
-  frame.postMessage("hello", "*");
+  frame1 = document.getElementById("ifrm2").contentWindow;
+  frame1.postMessage("hello", "*");
+  frame2 = document.getElementById("ifrm1").contentWindow;
+  frame2.postMessage("hello from 2", "*");
 }
 
 </script>
