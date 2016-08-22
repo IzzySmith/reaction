@@ -116,6 +116,7 @@ function badReaction() {
   console.log("ruining the zen");
   frame  = document.getElementById("ifrm1").contentWindow;
   frame.postMessage(JSON.stringify({"command": "message", "data": "bad"}), '*');
+}
 
 </script>
 
