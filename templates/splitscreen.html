@@ -42,7 +42,12 @@ window.addEventListener('DOMContentLoaded', function() {
 		.on('session_ended', function(session) {
 			document.getElementById('exit_button').style.visibility="hidden";
 		}).startLeader('#ifrm1');
-	} 
+	} else {
+            document.getElementById("goodReaction").addEventListener("click", function(){
+            console.log("the button was clicked");
+            Surfly.currentSession.sendMessage({bar: 'roger that'}, "*");
+         });
+       }
      }
    });
  });
@@ -105,14 +110,14 @@ function inviteFriend(){
   document.getElementById("popupLink").style.visibility="visible";
 }
 
-function goodReaction(){
-  console.log("sending positive vibes");
-  if (Surfly.currentSession){
-    Surfly.currentSession.sendMessage({bar: 'roger that'}, "*");
-  } else {
-    console.log("does not think its in a session");
-  }
-}
+//function goodReaction(){
+//  console.log("sending positive vibes");
+//  if (Surfly.currentSession){
+//    Surfly.currentSession.sendMessage({bar: 'roger that'}, "*");
+//  } else {
+//    console.log("does not think its in a session");
+//  }
+//}
 </script>
 
 <script>
