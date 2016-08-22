@@ -40,7 +40,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			sess = session;	
                         document.getElementById("goodReaction").addEventListener("click", function(){
                         console.log("the event was registered");
-                        session.sendMessage({bar: 'roger that'}, "*");
+                        sess.sendMessage({bar: 'roger that'}, "*");
                        }); 
 		})
 		.on('session_ended', function(session) {
