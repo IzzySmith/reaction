@@ -104,6 +104,13 @@ function inviteFriend(){
   popupWindow.postMessage(inviteLink, "*");
   document.getElementById("popupLink").style.visibility="visible";
 }
+
+function goodReaction(){
+  console.log("sending positive vibes");
+  if (surfly.currentSession){
+    Surfly.currentSession.sendMessage({bar: 'roger that'}, "*");
+  }
+}
 </script>
 
 <script>
@@ -120,6 +127,7 @@ function closeIFrame(){
 <div id="menu">
 	<button class="button" id="exit_button" onclick="exitSession()">Exit</button>
 	<button id="ignore" onclick="ignoreFriend()">Ignore Friend</button>
+        <button id="goodReaction" onclcik="goodReaction()">Good reaction</button>
 	<button id="invite" class="button" onclick="inviteFriend()">Invite Friend</button>
 	<div id="form_wrapper">
 		<form id="nav" action="" method="post">
