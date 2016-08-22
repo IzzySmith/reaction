@@ -133,5 +133,12 @@ document.getElementById('ifrm1').src = fullUrl;
   }
 </script>
 
+
+<script>
+window.addEventListener('message', function(e){
+        var string = JSON.stringify(e.data);
+	console.log("the data recieved is ", string);
+})
+</script>
 </body>
 </html>
