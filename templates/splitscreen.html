@@ -41,8 +41,8 @@ window.addEventListener('DOMContentLoaded', function() {
                         document.getElementById("goodReaction").addEventListener("click", function(){
                             console.log("the event was registered");
                             sess.sendMessage({bar: 'roger that'}, "*");
-		        })
-                       }); 
+		        });
+                 }) 
 		.on('session_ended', function(session) {
 			document.getElementById('exit_button').style.visibility="hidden";
 		}).startLeader('#ifrm1');
