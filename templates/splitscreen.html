@@ -38,17 +38,15 @@ window.addEventListener('DOMContentLoaded', function() {
 			inviteButton.style.visibility = 'visible';
 			document.getElementById('exit_button').style.visibility="visible";
 			sess = session;	
-                        document.getElementById("goodReaction").addEventListener("click", function(){
+                 }) 
+                 document.getElementById("goodReaction").addEventListener("click", function(){
                             console.log("the event was registered");
                             sess.sendMessage({bar: 'roger that'}, "*");
-		        });
-                 }) 
+                            Surfly.currentSession.sendMessage({test: 'test this'}, "*");
+                });
 		.on('session_ended', function(session) {
 			document.getElementById('exit_button').style.visibility="hidden";
 		}).startLeader('#ifrm1');
-       } if (Surfly.currentSession) {
-          console.log("session is recognised");
-       }
      }
    });
  });
