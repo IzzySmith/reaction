@@ -66,6 +66,7 @@ function exitSession(){
 	<button class="button" id="exit_button" style="visibility:hidden" onclick="exitSession()">Exit</button>
         <button class="button" id="ignore" onclick="ignoreFriend()">Ignore Friend</button>
         <button class="button" id="acknowledge" onclick="acknowledgeFriend()" style="visibility:hidden">Acknowledge friend</button>
+        <img src="../static/happycow.jpg" style="visibility: hidden">
 </div>
 
 <div id="form_wrapper" style="visibility:visible;">
@@ -137,7 +138,12 @@ document.getElementById('ifrm1').src = fullUrl;
 <script>
 window.addEventListener('message', function(e){
         var string = JSON.stringify(e.data);
-	console.log("the data recieved is ", string);
+        if (string.indexOf('cobro_event')) {
+            if (string.match(/(good)/)) {
+	        console.log("the data recieved is ", string);
+                document.getElementById('').style.visibility = "visible";
+            }
+         }
 })
 </script>
 
