@@ -39,12 +39,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			document.getElementById('exit_button').style.visibility="visible";
 			sess = session;	
                  }) 
-                 document.getElementById("goodReaction").addEventListener("click", function(){
-                            console.log("the event was registered");
-                            sess.sendMessage({bar: 'roger that'}, "*");
-                            Surfly.currentSession.sendMessage({test: 'test this'}, "*");
-                })
-		s.on('session_ended', function(session) {
+		.on('session_ended', function(session) {
 			document.getElementById('exit_button').style.visibility="hidden";
 		}).startLeader('#ifrm1');
      }
