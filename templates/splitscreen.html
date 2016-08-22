@@ -109,6 +109,8 @@ function goodReaction(){
   console.log("sending positive vibes");
   if (Surfly.currentSession){
     Surfly.currentSession.sendMessage({bar: 'roger that'}, "*");
+  } else {
+    console.log("does not think its in a session");
   }
 }
 </script>
