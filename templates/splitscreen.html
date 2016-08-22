@@ -107,7 +107,7 @@ function inviteFriend(){
 
 function goodReaction(){
   console.log("sending positive vibes");
-  if (surfly.currentSession){
+  if (Surfly.currentSession){
     Surfly.currentSession.sendMessage({bar: 'roger that'}, "*");
   }
 }
