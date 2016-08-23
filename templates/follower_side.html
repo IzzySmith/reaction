@@ -166,13 +166,13 @@ window.addEventListener('message', function(e){
              if (string.match(/(bad)/)) {
                 reactionFrame.src = "../static/grumpy.jpg";
             }
-            // may do something wierd like respond to other messages
-            // add a condition here to check if iframe has a src? 
-            reactionFrame.style.visibility="visible";
-            // the element is hidden after 3 seconds 
-            setTimeout(function() {
-                reactionFrame.style.visibility = "hidden";
-            }, 3000);
+            if (reactionFrame.src != "") {
+              reactionFrame.style.visibility="visible";
+              // the element is hidden after 3 seconds 
+              setTimeout(function() {
+                 reactionFrame.style.visibility = "hidden";
+              }, 3000);
+            }
          }
 })
 </script>
