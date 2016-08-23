@@ -54,6 +54,16 @@ function sendMess(){
 function exitSession(){
   sess.end('https://www.surfly.com');
 }
+
+function goodReaction(){
+  frame2 = document.getElementById("ifrm1").contentWindow;
+  frame2.postMessage(JSON.stringify({"command": "message", "data": "good"}), '*');
+}
+
+function badReaction() {
+  frame  = document.getElementById("ifrm1").contentWindow;
+  frame.postMessage(JSON.stringify({"command": "message", "data": "bad"}), '*');
+}
 </script>
 
 <style>
@@ -64,6 +74,8 @@ function exitSession(){
 <body>
 <div style="text-align:right;">
 	<button class="button" id="exit_button" style="visibility:hidden" onclick="exitSession()">Exit</button>
+        <button id="goodReaction" class="reaction" onclick="goodReaction()"><img src="../static/smile.jpg"></button>
+        <button id="badReaction" class="reaction" onclick="badReaction()"><img src="../static/sad.jpg"></button>
         <button class="button" id="ignore" onclick="ignoreFriend()">Ignore Friend</button>
         <button class="button" id="acknowledge" onclick="acknowledgeFriend()" style="visibility:hidden">Acknowledge friend</button>
 </div>
@@ -140,7 +152,6 @@ document.getElementById('ifrm1').src = fullUrl;
   }
 </script>
 
-<!-- tidy up and put both reactions into one function -->
 <script>
 window.addEventListener('message', function(e){
 // listen for a message about the other persons reaction
@@ -167,23 +178,6 @@ window.addEventListener('message', function(e){
          }
 })
 </script>
-
-<!--
-<script>
-window.addEventListener('message', function(e){
-        var string = JSON.stringify(e.data);
-        if (string.indexOf('cobro_event')) {
-            if (string.match(/(bad)/)) {
-	        console.log("you got a bad review ", string);
-                document.getElementById('grumpy').style.visibility = "visible";
-                setTimeout(function() {
-                  document.getElementById('grumpy').style.visibility = "hidden";
-                }, 3000); 
-            }
-         }
-})
-</script>
--->
 
 </body>
 </html>
