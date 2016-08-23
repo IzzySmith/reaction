@@ -107,6 +107,14 @@ body {
 	height: 27px;
 }
 
+#badReaction {
+       position: relative;
+       float: right;
+       margin-top: 3px;
+       margin-right: 5px;
+       height: 27px;
+}
+
 #invite {
 	position: relative;
 	float: right;
