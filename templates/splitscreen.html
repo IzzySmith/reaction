@@ -34,6 +34,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			var pageUrl = document.location.href;
 			// append the page url to the session id
 			inviteLink = pageUrl.concat(sessionID);
+                        // only show invite button if the inviteLink is available
 			var inviteButton = document.getElementById("invite");
 			inviteButton.style.visibility = 'visible';
 			document.getElementById('exit_button').style.visibility="visible";
@@ -107,13 +108,13 @@ function inviteFriend(){
 
 
 function goodReaction(){
-  console.log("sending positive vibes");
+  // send a positive message to iframe1 
   frame2 = document.getElementById("ifrm1").contentWindow;
   frame2.postMessage(JSON.stringify({"command": "message", "data": "good"}), '*');
 }
 
 function badReaction() {
-  console.log("ruining the zen");
+  // send a negative message to iframe1
   frame  = document.getElementById("ifrm1").contentWindow;
   frame.postMessage(JSON.stringify({"command": "message", "data": "bad"}), '*');
 }
@@ -162,7 +163,7 @@ window.addEventListener('message', function(e){
 	<button id="ignore" onclick="ignoreFriend()">Ignore Friend</button>
         <button id="goodReaction" class="reaction" onclick="goodReaction()"><img src="../static/smile.jpg"></button>
         <button id="badReaction" class="reaction" onclick="badReaction()"><img src="../static/sad.jpg"></button>
-	<button id="invite" class="button" onclick="inviteFriend()">Invite Friend</button>
+	<button id="invite" class="button" onclick="inviteFriend()" style="visibility: hidden">Invite Friend</button>
 	<div id="form_wrapper">
 		<form id="nav" action="" method="post">
 			<label style="float:left">
@@ -184,8 +185,8 @@ window.addEventListener('message', function(e){
 <!-- the frame in which the invite link is displayed -->
 <iframe id="popupLink" src="./popup_link" height="300" width="45%" style="top: 30%; left: 35%; display: block; position: absolute; visibility:hidden"></iframe>
 <!-- the iframe in which the reactions are displayed -->
-<iframe height="700" width="49%" align='left' id="cow" src="../static/happycow.jpg" style="top: 5%; left: 0%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
-<iframe height="700" width="49%" align='left' id="grumpy" src="../static/grumpy.jpg" style="top: 5%; left: 0%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
+<iframe height="700" width="49%" align='left' id="cow" src="../static/happycow.jpg" style="top: 7%; left: 0%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
+<iframe height="700" width="49%" align='left' id="grumpy" src="../static/grumpy.jpg" style="top: 7%; left: 0%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
 </body>
 
 </html>
