@@ -87,14 +87,13 @@ function exitSession(){
 <!-- the leader link is opened in this frame -->
 <div class="box"><iframe id="ifrm2" src="" height="700" width="49%" align='right'></iframe></div>
 <!-- the reaction is seen in this iframe -->
-<iframe height="700" width="49%" align='left' id="cow" src="../static/happycow.jpg" style="top: 10%; left: 5%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
-<iframe height="700" width="49%" align='left' id="grumpy" src="../static/grumpy.jpg" style="top: 10%; left: 5%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
+<iframe height="700" width="49%" align='left' id="cow" src="../static/happycow.jpg" style="top: 2%; left: 2%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
+<iframe height="700" width="49%" align='left' id="grumpy" src="../static/grumpy.jpg" style="top: 2%; left: 2%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
 
 <!-- <iframe><img id="grumpy" src="../static/grumpy.jpg" style="visibility: hidden"></iframe> -->
 <!-- <img id="cow" src="../static/happycow.jpg" style="visibility: hidden"> -->
 
 <!-- can either have two iframes and close/ hide them as required OR one iframe and set the src to a different image each time -->
-
 
 <script>
 // get the current url and the follower link
@@ -141,6 +140,16 @@ document.getElementById('ifrm1').src = fullUrl;
   }
 </script>
 
+<!--
+function show(id) {
+  var element = document.getElementById(id);
+  element.style.display = "block";
+  setTimeout(function() {
+    element.style.display = "none";
+  }, 1000); // 1000ms = 1 second
+}
+-->
+
 <!-- tidy up and put both reactions into one function -->
 <script>
 window.addEventListener('message', function(e){
@@ -149,6 +158,9 @@ window.addEventListener('message', function(e){
             if (string.match(/(good)/)) {
 	        console.log("the data recieved is ", string);
                 document.getElementById('cow').style.visibility = "visible";
+                setTimeout(function() {
+                  document.getElementBYId('cow').style.visibility = "hidden";
+                }, 3000); 
             }
          }
 })
