@@ -87,8 +87,8 @@ function exitSession(){
 <!-- the leader link is opened in this frame -->
 <div class="box"><iframe id="ifrm2" src="" height="700" width="49%" align='right'></iframe></div>
 <!-- the reaction is seen in this iframe -->
-<iframe height="700" width="49%" align='left' id="cow" src="../static/happycow.jpg" style="top: 5%; left: 0%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
-<iframe height="700" width="49%" align='left' id="grumpy" src="../static/grumpy.jpg" style="top: 5%; left: 0%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
+<iframe height="700" width="49%" align='left' id="cow" src="../static/happycow.jpg" style="top: 10%; left: 0%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
+<iframe height="700" width="49%" align='left' id="grumpy" src="../static/grumpy.jpg" style="top: 10%; left: 0%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
 
 <!-- <iframe><img id="grumpy" src="../static/grumpy.jpg" style="visibility: hidden"></iframe> -->
 <!-- <img id="cow" src="../static/happycow.jpg" style="visibility: hidden"> -->
@@ -140,32 +140,34 @@ document.getElementById('ifrm1').src = fullUrl;
   }
 </script>
 
-<!--
-function show(id) {
-  var element = document.getElementById(id);
-  element.style.display = "block";
-  setTimeout(function() {
-    element.style.display = "none";
-  }, 1000); // 1000ms = 1 second
-}
--->
-
 <!-- tidy up and put both reactions into one function -->
 <script>
 window.addEventListener('message', function(e){
+// listen for a message about the other persons reaction
         var string = JSON.stringify(e.data);
         if (string.indexOf('cobro_event')) {
+            // if the data recieved is "good" display the happy image
             if (string.match(/(good)/)) {
 	        console.log("the data recieved is ", string);
                 document.getElementById('cow').style.visibility = "visible";
+                // the element is hidden after 3 seconds 
                 setTimeout(function() {
                   document.getElementById('cow').style.visibility = "hidden";
+                }, 3000);
+             // if the data recieved is "bad" display the grumpy image
+             if (string.match(/(bad)/)) {
+	        console.log("you got a bad review ", string);
+                document.getElementById('grumpy').style.visibility = "visible";
+                // the element is hidden after 3 seconds
+                setTimeout(function() {
+                  document.getElementById('grumpy').style.visibility = "hidden";
                 }, 3000); 
             }
          }
 })
 </script>
 
+<!--
 <script>
 window.addEventListener('message', function(e){
         var string = JSON.stringify(e.data);
@@ -180,6 +182,7 @@ window.addEventListener('message', function(e){
          }
 })
 </script>
+-->
 
 </body>
 </html>

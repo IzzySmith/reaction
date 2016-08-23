@@ -113,6 +113,18 @@ body {
        margin-top: 3px;
        margin-right: 5px;
        height: 27px;
+       background: transparent;
+       border: none;
+}
+
+#goodReaction {
+       position: relative;
+       float: right;
+       margin-top: 3px;
+       margin-right: 5px;
+       height: 27px;
+       background: transparent;
+       border: none;       
 }
 
 #invite {
