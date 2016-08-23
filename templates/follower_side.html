@@ -66,8 +66,6 @@ function exitSession(){
 	<button class="button" id="exit_button" style="visibility:hidden" onclick="exitSession()">Exit</button>
         <button class="button" id="ignore" onclick="ignoreFriend()">Ignore Friend</button>
         <button class="button" id="acknowledge" onclick="acknowledgeFriend()" style="visibility:hidden">Acknowledge friend</button>
-        <img id="cow" src="../static/happycow.jpg" style="visibility: hidden">
-        <img id="grumpy" src="../static/grumpy.jpg" style="visibility: hidden">
 </div>
 
 <div id="form_wrapper" style="visibility:visible;">
@@ -88,6 +86,10 @@ function exitSession(){
 <div class="box"><iframe id="ifrm1" src="" height="700" width="49%" align='left'></iframe></div>
 <!-- the leader link is opened in this frame -->
 <div class="box"><iframe id="ifrm2" src="" height="700" width="49%" align='right'></iframe></div>
+<!-- the reaction is seen in this iframe -->
+<iframe height="700" width="49" align='left' style="visibility:hidden" id="cow" src="../static/happycow.jpg"></iframe>
+<!-- <iframe><img id="grumpy" src="../static/grumpy.jpg" style="visibility: hidden"></iframe> -->
+<!-- <img id="cow" src="../static/happycow.jpg" style="visibility: hidden"> -->
 
 
 <script>
