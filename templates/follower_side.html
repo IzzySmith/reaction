@@ -87,8 +87,8 @@ function exitSession(){
 <!-- the leader link is opened in this frame -->
 <div class="box"><iframe id="ifrm2" src="" height="700" width="49%" align='right'></iframe></div>
 <!-- the reaction is seen in this iframe -->
-<iframe height="700" width="49%" align='left' id="cow" src="../static/happycow.jpg" style="top: 2%; left: 5%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
-<iframe height="700" width="49%" align='left' id="grumpy" src="../static/grumpy.jpg" style="top: 2%; left: 5%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
+<iframe height="700" width="49%" align='left' id="cow" src="../static/happycow.jpg" style="top: 0%; left: 5%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
+<iframe height="700" width="49%" align='left' id="grumpy" src="../static/grumpy.jpg" style="top: 0%; left: 5%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe>
 
 <!-- <iframe><img id="grumpy" src="../static/grumpy.jpg" style="visibility: hidden"></iframe> -->
 <!-- <img id="cow" src="../static/happycow.jpg" style="visibility: hidden"> -->
@@ -173,6 +173,9 @@ window.addEventListener('message', function(e){
             if (string.match(/(bad)/)) {
 	        console.log("you got a bad review ", string);
                 document.getElementById('grumpy').style.visibility = "visible";
+                setTimeout(function() {
+                  document.getElementById('cow').style.visibility = "hidden";
+                }, 3000); 
             }
          }
 })
