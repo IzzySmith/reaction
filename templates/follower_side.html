@@ -99,7 +99,9 @@ function badReaction() {
 <!-- the leader link is opened in this frame -->
 <div class="box"><iframe id="ifrm2" src="" height="700" width="49%" align='right'></iframe></div>
 <!-- the reaction is seen in this iframe -->
-<div class="box"><iframe height="700" width="49%" align='left' id="reaction" src="" style="top: 0%; left: 0%; display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe></div>
+<div class="box"><iframe height="700" width="49%" align='left' id="reaction" src="" style="display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe></div>
+
+<!-- top: 0%; left: 0%;  -->
 
 <script>
 // get the current url and the follower link
@@ -149,20 +151,22 @@ document.getElementById('ifrm1').src = fullUrl;
 <script>
 // listen for a message about the other persons reaction
 window.addEventListener('message', function(e){
+        // reactionFrame is the iframe we will show the images on
         var reactionFrame = document.getElementById('reaction');
         var string = JSON.stringify(e.data);
         if (string.indexOf('cobro_event')) {
-            // if the data recieved is "good" display the happy image
+            // if the data recieved is "good" set the source of reactionFrame to the happy image
             if (string.match(/(good)/)) {
                 reactionFrame.src = "../static/happycow.jpg";
              }
-             // if the data recieved is "bad" display the grumpy image
+             // if the data recieved is "bad" the src of reactionFrame is the grumpy image
              if (string.match(/(bad)/)) {
                 reactionFrame.src = "../static/grumpy.jpg";
             }
             if (reactionFrame.src != "") {
+              // check that the src is not empty, and then show the frame
               reactionFrame.style.visibility="visible";
-              // the element is hidden after 3 seconds 
+              // the frame is hidden after 3 seconds 
               setTimeout(function() {
                  reactionFrame.style.visibility = "hidden";
               }, 3000);
