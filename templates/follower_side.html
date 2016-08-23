@@ -74,8 +74,9 @@ function badReaction() {
 <body>
 <div style="text-align:right;">
 	<button class="button" id="exit_button" style="visibility:hidden" onclick="exitSession()">Exit</button>
-        <button id="goodReaction" class="reaction" onclick="goodReaction()"><img src="../static/smile.jpg"></button>
-        <button id="badReaction" class="reaction" onclick="badReaction()"><img src="../static/sad.jpg"></button>
+        <!-- style was added to reaction buttons, as was not responsive to css stylesheet - look into this -->
+        <button id="goodReaction" style="background: transparent; border: none;" class="reaction" onclick="goodReaction()"><img src="../static/smile.jpg"></button>
+        <button id="badReaction" style="background: transparent; border: none;" class="reaction" onclick="badReaction()"><img src="../static/sad.jpg"></button>
         <button class="button" id="ignore" onclick="ignoreFriend()">Ignore Friend</button>
         <button class="button" id="acknowledge" onclick="acknowledgeFriend()" style="visibility:hidden">Acknowledge friend</button>
 </div>
