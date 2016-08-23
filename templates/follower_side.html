@@ -52,15 +52,18 @@ function sendMess(){
 }
 
 function exitSession(){
+  // ends the session
   sess.end('https://www.surfly.com');
 }
 
 function goodReaction(){
+  // sends a positive message to iframe 1
   frame2 = document.getElementById("ifrm1").contentWindow;
   frame2.postMessage(JSON.stringify({"command": "message", "data": "good"}), '*');
 }
 
 function badReaction() {
+  // sends a negative message to iframe 1 
   frame  = document.getElementById("ifrm1").contentWindow;
   frame.postMessage(JSON.stringify({"command": "message", "data": "bad"}), '*');
 }
@@ -72,6 +75,7 @@ function badReaction() {
 </head>
 
 <body>
+<!-- the menu bar at the top right of the page -->
 <div style="text-align:right;">
 	<button class="button" id="exit_button" style="visibility:hidden" onclick="exitSession()">Exit</button>
         <!-- style was added to reaction buttons, as was not responsive to css stylesheet - look into this -->
@@ -81,6 +85,7 @@ function badReaction() {
         <button class="button" id="acknowledge" onclick="acknowledgeFriend()" style="visibility:hidden">Acknowledge friend</button>
 </div>
 
+<!-- nav bar -->
 <div id="form_wrapper" style="visibility:visible;">
 	<form id="nav" action="" method="post">
 		<label>
@@ -101,8 +106,6 @@ function badReaction() {
 <div class="box"><iframe id="ifrm2" src="" height="700" width="49%" align='right'></iframe></div>
 <!-- the reaction is seen in this iframe -->
 <div class="box"><iframe height="700" width="49%" align='left' id="reaction" src="" style="display: block; position: absolute; frameBorder:'0'; visibility:hidden;"></iframe></div>
-
-<!-- top: 0%; left: 0%;  -->
 
 <script>
 // get the current url and the follower link
